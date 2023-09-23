@@ -1,0 +1,11 @@
+Initialize a variable last_position to n - 1, where n is the length of the array-based list a.
+
+Start a loop that iterates from i = 0 to i = last_position.
+
+For each element a[i], compare it with the value x that you want to remove duplicates of.
+
+If a[i] is equal to x, then it's a duplicate, and you need to remove it. To remove it, shift all elements to the right of a[i] one position to the left to fill the gap created by removing the duplicate.
+
+Decrement last_position by 1 since the list has become one element shorter.
+
+Continue this process until the loop finishes, and you will have removed all duplicates of x from the list.
