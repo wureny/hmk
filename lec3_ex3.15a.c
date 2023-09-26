@@ -8,12 +8,10 @@ struct List {
     int size;
 };
 
-// Initialize an empty list
-void InitializeList(struct List* L) {
+void Initialize(struct List* L) {
     L->size = 0;
 }
 
-// Insert an element at the front of the list
 void Insert(int x, struct List* L) {
     if (L->size < MAX_SIZE) {
         // Shift existing elements to the right
@@ -29,7 +27,7 @@ void Insert(int x, struct List* L) {
     }
 }
 
-// Delete a node with a specific value x from the list
+
 void Delete(int x, struct List* L) {
     for (int i = 0; i < L->size; i++) {
         if (L->data[i] == x) {
@@ -43,7 +41,6 @@ void Delete(int x, struct List* L) {
     }
 }
 
-// Find an element and move it to the front of the list
 void FindAndMoveToFront(int x, struct List* L) {
     for (int i = 0; i < L->size; i++) {
         if (L->data[i] == x) {

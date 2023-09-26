@@ -12,7 +12,6 @@ typedef struct {
     Node* head;
 } LIST;
 
-// Function to create a new node with the given data
 Node* createNode(int data) {
     Node* newNode = (Node*)malloc(sizeof(Node));
     if (newNode) {
@@ -22,7 +21,7 @@ Node* createNode(int data) {
     return newNode;
 }
 
-// Function to insert an element at the front of the list
+
 void insertFront(LIST* L, int data) {
     Node* newNode = createNode(data);
     if (newNode) {
@@ -30,8 +29,6 @@ void insertFront(LIST* L, int data) {
         L->head = newNode;
     }
 }
-
-// Function to delete all occurrences of x from the list
 void Delete(int x, LIST* L) {
     Node* current = L->head;
     Node* prev = NULL;

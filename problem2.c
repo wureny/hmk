@@ -1,22 +1,27 @@
 #include <stdio.h>
-#include <string.h>
-
-int del_substr(char *str, char const *substr) {
-    // Check for NULL pointers or empty substrings
+int del_substr(char *str, const char *substr) {
     if (str == NULL || substr == NULL || *substr == '\0') {
         return 0;
     }
     size_t str_len = strlen(str);
     size_t substr_len = strlen(substr);
-    if (substr_len > str_len) {
+    if (substr_len == 0) {
         return 0; 
     }
-    char *match = strstr(str, substr);
-    if (match == NULL) {
-        return 0;
+    char *source = str; 
+    char *destination = str; 
+    char *match;
+
+    while ((match = strstr(source, substr)) != NULL) {
+        size_t prefix_len = match - source; 
+        for (size_t i = 0; i < prefix_len; i++) {
+            *destination++ = *source++;
+        }
+
+        source += substr_len; // Move the source pointer past the match
     }
-    size_t move_len = str_len - (match - str) - substr_len + 1;
-    memmove(match, match + substr_len, move_len);
+    while ((*destination++ = *source++) != '\0');
     return 1;
 }
+
 

@@ -12,12 +12,10 @@ struct List {
     struct Node* head;
 };
 
-// Initialize an empty list
 void InitializeList(struct List* L) {
     L->head = NULL;
 }
 
-// Insert an element at the front of the list
 void Insert(int x, struct List* L) {
     struct Node* newNode = (struct Node*)malloc(sizeof(struct Node));
     newNode->data = x;
@@ -25,7 +23,6 @@ void Insert(int x, struct List* L) {
     L->head = newNode;
 }
 
-// Delete a node with a specific value x from the list
 void Delete(int x, struct List* L) {
     struct Node* current = L->head;
     struct Node* prev = NULL;
@@ -38,27 +35,24 @@ void Delete(int x, struct List* L) {
                 L->head = current->next;
             }
             free(current);
-            return; // Element found and deleted
+            return; 
         }
         prev = current;
         current = current->next;
     }
 }
 
-// Find an element and move it to the front of the list
 void FindAndMoveToFront(int x, struct List* L) {
     struct Node* current = L->head;
     struct Node* prev = NULL;
-
     while (current != NULL) {
         if (current->data == x) {
-            // Move the found element to the front of the list
             if (prev != NULL) {
                 prev->next = current->next;
                 current->next = L->head;
                 L->head = current;
             }
-            return; // Element found and moved to the front
+            return; 
         }
         prev = current;
         current = current->next;
