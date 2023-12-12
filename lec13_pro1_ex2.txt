@@ -1,0 +1,13 @@
+A:B,E
+B:C
+C:t
+D:A,E
+E:C,I,F
+F:C,T
+G:D,E,H
+H:E,I
+I:F,t
+s:A,D,G
+t:
+
+t,C,B,F,I,E,A,D,H,G,s
